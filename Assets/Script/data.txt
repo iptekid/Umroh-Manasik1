@@ -1,0 +1,90 @@
+{"videoDatas": 
+[
+    {
+        "nama": "Programming Course Collection",
+        "hasVideo": false,
+        "urlVideo": "",
+        "hasAudio": false,
+        "urlAudio": "",
+        "description": "Complete programming course collection",
+        "videoData": [
+            {
+                "nama": "1. Introduction to Programming",
+                "hasVideo": true,
+                "urlVideo": "https://example.com/video/prog/intro.mp4",
+                "hasAudio": true,
+                "urlAudio": "https://example.com/audio/prog/intro.mp3",
+                "description": "Basic programming concepts and fundamentals",
+                "videoData": [
+                    {
+                        "nama": "1.1 Getting Started",
+                        "hasVideo": true,
+                        "urlVideo": "https://example.com/video/prog/getting-started.mp4",
+                        "hasAudio": true,
+                        "urlAudio": "https://example.com/audio/prog/getting-started.mp3",
+                        "description": "Setup and basic concepts",
+                        "videoData": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "nama": "Design Course Collection",
+        "hasVideo": false,
+        "urlVideo": "",
+        "hasAudio": false,
+        "urlAudio": "",
+        "description": "Complete design course collection",
+        "videoData": [
+            {
+                "nama": "1. UI/UX Fundamentals",
+                "hasVideo": true,
+                "urlVideo": "https://example.com/video/design/ui-ux.mp4",
+                "hasAudio": true,
+                "urlAudio": "https://example.com/audio/design/ui-ux.mp3",
+                "description": "Basic UI/UX principles",
+                "videoData": [
+                    {
+                        "nama": "1.1 Design Basics",
+                        "hasVideo": true,
+                        "urlVideo": "https://example.com/video/design/basics.mp4",
+                        "hasAudio": true,
+                        "urlAudio": "https://example.com/audio/design/basics.mp3",
+                        "description": "Core design principles",
+                        "videoData": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "nama": "Business Course Collection",
+        "hasVideo": false,
+        "urlVideo": "",
+        "hasAudio": false,
+        "urlAudio": "",
+        "description": "Complete business course collection",
+        "videoData": [
+            {
+                "nama": "1. Business Strategy",
+                "hasVideo": true,
+                "urlVideo": "https://example.com/video/business/strategy.mp4",
+                "hasAudio": true,
+                "urlAudio": "https://example.com/audio/business/strategy.mp3",
+                "description": "Introduction to business strategy",
+                "videoData": [
+                    {
+                        "nama": "1.1 Strategic Planning",
+                        "hasVideo": true,
+                        "urlVideo": "https://example.com/video/business/planning.mp4",
+                        "hasAudio": true,
+                        "urlAudio": "https://example.com/audio/business/planning.mp3",
+                        "description": "Fundamentals of strategic planning",
+                        "videoData": []
+                    }
+                ]
+            }
+        ]
+    }
+]}
