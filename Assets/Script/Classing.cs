@@ -22,3 +22,14 @@ public class VideoDataWrapper
 {
     public List<VideoData> videoDatas;
 }
+public interface IOpacityAnimator
+{
+    void FadeTo(float targetOpacity, float duration);
+    void FadeIn(float duration);
+    void FadeOut(float duration);
+    void SetOpacity(float opacity);
+    void Show();
+    void Hide();
+    void StartPingPong(float minOpacity, float maxOpacity, float duration);
+    void StopAnimation();
+}
