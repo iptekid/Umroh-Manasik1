@@ -15,19 +15,36 @@ public class VideoManager : MonoBehaviour
         OpacityAnimator transitionOA = transition.GetComponent<OpacityAnimator>();
         transitionOA.FadeIn(0);
         transitionOA.FadeOut(.5f);
-        Invoke(nameof(ShowingSphere), 2);
+        Invoke(nameof(ShowingSphere), 1);
 
     }
-
-    public void ShowingSphere() {
-        animator.FadeTo(0, 0);
-        videoPlayer.Play();
-        animator.FadeIn(3.0f);
-    }
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         
+    }
+    public void ShowingSphere() {
+        animator.FadeTo(0, 0);
+        //videoPlayer.skipOnDrop = true; // Helps maintain sync by skipping frames if needed
+        //videoPlayer.waitForFirstFrame = false;
+        videoPlayer.Play();
+
+        animator.FadeIn(2.0f);
+        Invoke(nameof(delays), 2);
+
+    }
+    // Update is called once per frame
+    void delays() {
+        transition.GetComponent<MeshRenderer>().enabled = false;
+        //float a = videoPlayer.seekCompleted
+        //Invoke(nameof(delays1), videoPlayer.time);
+        //Invoke(nameof(delays1), (float)videoPlayer.time);
+        Invoke(nameof(delays1), 70);
+
+    }
+    void delays1()
+    {
+        sphere.GetComponent<MeshRenderer>().enabled = false;
+
     }
     void samples() {
         // Get reference to the component
