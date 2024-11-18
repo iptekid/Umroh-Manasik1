@@ -41,7 +41,7 @@
                 "nama": "1. UI/UX Fundamentals",
                 "hasVideo": true,
                 "urlVideo": "https://example.com/video/design/ui-ux.mp4",
-                "hasAudio": true,
+                "hasAudio": false,
                 "urlAudio": "https://example.com/audio/design/ui-ux.mp3",
                 "description": "Basic UI/UX principles",
                 "videoData": [
@@ -49,7 +49,7 @@
                         "nama": "1.1 Design Basics",
                         "hasVideo": true,
                         "urlVideo": "https://example.com/video/design/basics.mp4",
-                        "hasAudio": true,
+                        "hasAudio": false,
                         "urlAudio": "https://example.com/audio/design/basics.mp3",
                         "description": "Core design principles",
                         "videoData": []
@@ -70,7 +70,7 @@
                 "nama": "1. Business Strategy",
                 "hasVideo": true,
                 "urlVideo": "https://example.com/video/business/strategy.mp4",
-                "hasAudio": true,
+                "hasAudio": false,
                 "urlAudio": "https://example.com/audio/business/strategy.mp3",
                 "description": "Introduction to business strategy",
                 "videoData": [
@@ -78,7 +78,7 @@
                         "nama": "1.1 Strategic Planning",
                         "hasVideo": true,
                         "urlVideo": "https://example.com/video/business/planning.mp4",
-                        "hasAudio": true,
+                        "hasAudio": false,
                         "urlAudio": "https://example.com/audio/business/planning.mp3",
                         "description": "Fundamentals of strategic planning",
                         "videoData": []

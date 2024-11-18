@@ -1413,7 +1413,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 455073227}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: d55f8e166154f3549be0b7b588f5817b, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: ba1e9bf0f7350d24d82ee7acec378cd1, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -1423,7 +1423,7 @@ VideoPlayer:
   m_TargetMaterialProperty: <noninit>
   m_RenderMode: 2
   m_AspectRatio: 2
-  m_DataSource: 0
+  m_DataSource: 1
   m_TimeUpdateMode: 2
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 0
@@ -1431,8 +1431,7 @@ VideoPlayer:
   - {fileID: 0}
   m_DirectAudioVolumes:
   - 1
-  m_Url: file://C:/Users/rajas/Documents/IPTEK/2024/Project-Files/Umroh-Manasik/Assets/StreamingAssets/MANASIK
-    HIGHLIGHT.mp4
+  m_Url: https://sabr.iptec.id/videos/highlight3840p.mp4
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
@@ -1899,7 +1898,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 761101861}
-  - component: {fileID: 761101862}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -1922,19 +1920,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &761101862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 761101859}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 613a5a29115731742a0a5b073ac9b25c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxCacheSize: 5
 --- !u!1 &772815317
 GameObject:
   m_ObjectHideFlags: 0
@@ -4653,10 +4638,10 @@ SceneRoots:
   - {fileID: 1723312095}
   - {fileID: 1469152436}
   - {fileID: 1480374501}
-  - {fileID: 88461258}
   - {fileID: 929669979}
-  - {fileID: 455073229}
+  - {fileID: 88461258}
   - {fileID: 1525219672}
   - {fileID: 217590912}
   - {fileID: 46823918}
+  - {fileID: 455073229}
   - {fileID: 761101861}
