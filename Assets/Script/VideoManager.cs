@@ -1,70 +1,138 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 
 public class VideoManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public GameObject transition;
-    public GameObject sphere;
-    public OpacityAnimator animator;
-    public VideoPlayer videoPlayer;
 
-    void Start()
+    private static VideoManager _instance;
+    public static VideoManager Instance
     {
-        animator = sphere.GetComponent<OpacityAnimator>();
-        OpacityAnimator transitionOA = transition.GetComponent<OpacityAnimator>();
-        transitionOA.FadeIn(0);
-        transitionOA.FadeOut(.5f);
-        Invoke(nameof(ShowingSphere), 1);
-
+        get
+        {
+            if (_instance == null)
+            {
+                GameObject go = new GameObject("VideoManager");
+                _instance = go.AddComponent<VideoManager>();
+                DontDestroyOnLoad(go);
+            }
+            return _instance;
+        }
     }
-    private void Update()
+
+    // Cache for preloaded video players
+    private Dictionary<string, VideoPlayer> videoCache = new Dictionary<string, VideoPlayer>();
+    private Dictionary<string, Action<VideoPlayer>> preloadCallbacks = new Dictionary<string, Action<VideoPlayer>>();
+
+    // Cache size management
+    [SerializeField] private int maxCacheSize = 5;
+    private Queue<string> cacheOrder = new Queue<string>();
+
+    private void Awake()
     {
-        
+        if (_instance != null && _instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        _instance = this;
+        DontDestroyOnLoad(gameObject);
     }
-    public void ShowingSphere() {
-        animator.FadeTo(0, 0);
-        //videoPlayer.skipOnDrop = true; // Helps maintain sync by skipping frames if needed
-        //videoPlayer.waitForFirstFrame = false;
-        videoPlayer.Play();
 
-        animator.FadeIn(2.0f);
-        Invoke(nameof(delays), 2);
-
-    }
-    // Update is called once per frame
-    void delays() {
-        transition.GetComponent<MeshRenderer>().enabled = false;
-        //float a = videoPlayer.seekCompleted
-        //Invoke(nameof(delays1), videoPlayer.time);
-        //Invoke(nameof(delays1), (float)videoPlayer.time);
-        Invoke(nameof(delays1), 70);
-
-    }
-    void delays1()
+    public void PreloadVideo(string videoUrl, Action<VideoPlayer> onComplete)
     {
-        sphere.GetComponent<MeshRenderer>().enabled = false;
+        if (string.IsNullOrEmpty(videoUrl))
+        {
+            Debug.LogError("Video URL is null or empty");
+            return;
+        }
 
+        // Check if already cached
+        if (videoCache.ContainsKey(videoUrl))
+        {
+            onComplete?.Invoke(videoCache[videoUrl]);
+            return;
+        }
+
+        // Create new video player for preloading
+        GameObject videoObject = new GameObject($"PreloadedVideo_{videoCache.Count}");
+        videoObject.transform.SetParent(transform);
+        VideoPlayer videoPlayer = videoObject.AddComponent<VideoPlayer>();
+
+        // Configure video player
+        videoPlayer.source = VideoSource.Url;
+        videoPlayer.url = videoUrl;
+        videoPlayer.playOnAwake = false;
+        videoPlayer.waitForFirstFrame = true;
+        videoPlayer.skipOnDrop = true;
+        videoPlayer.renderMode = VideoRenderMode.RenderTexture;
+
+        // Store callback
+        preloadCallbacks[videoUrl] = onComplete;
+
+        // Prepare video and set up completion callback
+        videoPlayer.prepareCompleted += (source) => OnVideoPrepared(videoUrl, source);
+        videoPlayer.Prepare();
     }
-    void samples() {
-        // Get reference to the component
-        //OpacityAnimator animator = sphere.GetComponent<OpacityAnimator>();
 
-        // Fade to specific opacity
-        animator.FadeTo(0.5f, 1.0f);  // Fade to 50% opacity over 1 second
+    private void OnVideoPrepared(string videoUrl, VideoPlayer source)
+    {
+        // Manage cache size
+        if (videoCache.Count >= maxCacheSize)
+        {
+            string oldestUrl = cacheOrder.Dequeue();
+            if (videoCache.TryGetValue(oldestUrl, out VideoPlayer oldPlayer))
+            {
+                Destroy(oldPlayer.gameObject);
+                videoCache.Remove(oldestUrl);
+            }
+        }
 
-        // Fade in/out
-        animator.FadeIn(2.0f);        // Fade to fully opaque over 2 seconds
-        animator.FadeOut(1.0f);       // Fade to fully transparent over 1 second
+        // Add to cache
+        videoCache[videoUrl] = source;
+        cacheOrder.Enqueue(videoUrl);
 
-        // Instant opacity change
-        animator.SetOpacity(0.75f);   // Instantly set to 75% opacity
+        // Invoke callback if exists
+        if (preloadCallbacks.TryGetValue(videoUrl, out Action<VideoPlayer> callback))
+        {
+            callback?.Invoke(source);
+            preloadCallbacks.Remove(videoUrl);
+        }
+    }
 
-        // Start ping-pong animation
-        animator.StartPingPong(0.2f, 0.8f, 2.0f);  // Fade between 20% and 80% opacity every 2 seconds
+    public VideoPlayer GetCachedVideo(string videoUrl)
+    {
+        if (videoCache.TryGetValue(videoUrl, out VideoPlayer cachedPlayer))
+        {
+            return cachedPlayer;
+        }
+        return null;
+    }
 
-        // Stop any ongoing animation
-        animator.StopAnimation();
+    public void ClearCache()
+    {
+        foreach (var player in videoCache.Values)
+        {
+            if (player != null)
+            {
+                Destroy(player.gameObject);
+            }
+        }
+        videoCache.Clear();
+        cacheOrder.Clear();
+        preloadCallbacks.Clear();
+    }
 
+    private void OnDestroy()
+    {
+        ClearCache();
+    }
+
+    // Memory management
+    private void OnLowMemory()
+    {
+        ClearCache();
     }
 }
