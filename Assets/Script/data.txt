@@ -80,7 +80,7 @@
           "description": "Pengantar - Toilet",
           "videoData": [
             {
-              "nama": "Pengantar - Toilet - 1",
+              "nama": "Toilet - 1",
               "hasVideo": true,
               "urlVideo": "https://example.com/video/business/planning.mp4",
               "hasAudio": false,
@@ -89,7 +89,7 @@
               "videoData": []
             },
             {
-              "nama": "Pengantar - Toilet - 2",
+              "nama": "Toilet - 2",
               "hasVideo": true,
               "urlVideo": "https://example.com/video/business/planning.mp4",
               "hasAudio": false,
@@ -98,7 +98,7 @@
               "videoData": []
             },
             {
-              "nama": "Pengantar - Toilet - 3",
+              "nama": "Toilet - 3",
               "hasVideo": true,
               "urlVideo": "https://example.com/video/business/planning.mp4",
               "hasAudio": false,
@@ -107,7 +107,7 @@
               "videoData": []
             },
             {
-              "nama": "Pengantar - Toilet - 4",
+              "nama": "Toilet - 4",
               "hasVideo": true,
               "urlVideo": "https://example.com/video/business/planning.mp4",
               "hasAudio": false,
@@ -116,7 +116,7 @@
               "videoData": []
             },
             {
-              "nama": "Pengantar - Toilet - 5",
+              "nama": "Toilet - 5",
               "hasVideo": true,
               "urlVideo": "https://example.com/video/business/planning.mp4",
               "hasAudio": false,

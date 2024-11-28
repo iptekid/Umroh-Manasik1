@@ -7,9 +7,12 @@ public class DataManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public List<VideoData> mainData;
     public List<VideoData> mainData2;
+    public List<VideoDataSorting> sortingData;
     public TextAsset textAsset;
+    public bool isSort;
     void Start()
     {
+        isSort = false;
         //VideoData data = LoadFromJson();
         //mainData2.Add(data);
         LoadCourses();
@@ -65,6 +68,7 @@ public class DataManager : MonoBehaviour
             Debug.Log($"Number of videos: {vd.videoData.Count}");
             Debug.Log("-------------------");
         }
+        SortingData();
     }
 
     // Method to get all course collections
@@ -123,5 +127,57 @@ public class DataManager : MonoBehaviour
                 SearchInVideoData(subVideo, searchTerm, results);
             }
         }
+    }
+
+    public void SortingData() {
+        for (int index = 0; index < mainData2.Count; index++) {
+            int i;
+            i = index;
+            VideoDataSorting v = new VideoDataSorting();
+            v.parent = "Main Menu";
+            v.nama = mainData2[i].nama;
+            v.hasVideo = mainData2[i].hasVideo;
+            v.urlVideo = mainData2[i].urlVideo;
+            v.hasAudio = mainData2[i].hasAudio;
+            v.urlAudio = mainData2[i].urlAudio;
+            v.description = mainData2[i].description;
+            List<VideoDataSorting> vVDS = new List<VideoDataSorting>();
+            v.videoData = vVDS;
+            for (int index2 = 0; index2 < mainData2[i].videoData.Count; index2++)
+            {
+                int j;
+                j = index2;
+                VideoDataSorting v2 = new VideoDataSorting();
+                v2.parent = v.nama;
+                v2.nama = mainData2[i].videoData[j].nama;
+                v2.hasVideo = mainData2[i].videoData[j].hasVideo;
+                v2.urlVideo = mainData2[i].videoData[j].urlVideo;
+                v2.hasAudio = mainData2[i].videoData[j].hasAudio;
+                v2.urlAudio = mainData2[i].videoData[j].urlAudio;
+                v2.description = mainData2[i].videoData[j].description;
+                vVDS.Add(v2);
+                List<VideoDataSorting> vVDS2 = new List<VideoDataSorting>();
+                v2.videoData = vVDS2;
+                for (int index3 = 0; index3 < mainData2[i].videoData[j].videoData.Count; index3++)
+                {
+                    int k;
+                    k = index3;
+                    VideoDataSorting v3 = new VideoDataSorting();
+                    v3.parent = v.nama +" - "+v2.nama;
+                    v3.nama = mainData2[i].videoData[j].videoData[k].nama;
+                    v3.hasVideo = mainData2[i].videoData[j].videoData[k].hasVideo;
+                    v3.urlVideo = mainData2[i].videoData[j].videoData[k].urlVideo;
+                    v3.hasAudio = mainData2[i].videoData[j].videoData[k].hasAudio;
+                    v3.urlAudio = mainData2[i].videoData[j].videoData[k].urlAudio;
+                    v3.description = mainData2[i].videoData[j].videoData[k].description;
+                    vVDS2.Add(v3);
+
+                }
+
+            }
+            sortingData.Add(v);
+        }
+        isSort = true;
+
     }
 }
