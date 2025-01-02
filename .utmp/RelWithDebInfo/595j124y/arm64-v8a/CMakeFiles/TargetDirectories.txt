@@ -1,0 +1,5 @@
+C:/Users/rajas/Documents/IPTEK/2024/Project-Files/Umroh-Manasik/.utmp/RelWithDebInfo/595j124y/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/rajas/Documents/IPTEK/2024/Project-Files/Umroh-Manasik/.utmp/RelWithDebInfo/595j124y/arm64-v8a/CMakeFiles/rebuild_cache.dir
+C:/Users/rajas/Documents/IPTEK/2024/Project-Files/Umroh-Manasik/.utmp/RelWithDebInfo/595j124y/arm64-v8a/GameActivity/CMakeFiles/game.dir
+C:/Users/rajas/Documents/IPTEK/2024/Project-Files/Umroh-Manasik/.utmp/RelWithDebInfo/595j124y/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
+C:/Users/rajas/Documents/IPTEK/2024/Project-Files/Umroh-Manasik/.utmp/RelWithDebInfo/595j124y/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir

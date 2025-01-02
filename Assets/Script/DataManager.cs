@@ -1,63 +1,55 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
+using System.Threading.Tasks;
+using System.Collections;
 
 public class DataManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     public List<VideoData> mainData;
     public List<VideoData> mainData2;
     public List<VideoDataSorting> sortingData;
-    public TextAsset textAsset;
     public bool isSort;
+    private string dataUrl = "https://sabr.iptec.id/data.txt";
+
     void Start()
     {
         isSort = false;
-        //VideoData data = LoadFromJson();
-        //mainData2.Add(data);
-        LoadCourses();
-
+        StartCoroutine(LoadCoursesFromUrl());
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator LoadCoursesFromUrl()
     {
-        
-    }
-
-    //public List<VideoData> courseCollections;
-
-
-    public void LoadCourses()
-    {
-        try
+        using (UnityWebRequest webRequest = UnityWebRequest.Get(dataUrl))
         {
-            if (textAsset != null)
-            {
-                // Since Unity's JsonUtility doesn't directly deserialize JSON arrays,
-                // we need to wrap the array in a temporary object
-                //string wrappedJson = "{ \"videoDatas\": " + textAsset.text + "}";
-                //Debug.Log(wrappedJson);
-                string wrappedJson = textAsset.text ;
-                VideoDataWrapper wrapper = JsonUtility.FromJson<VideoDataWrapper>(wrappedJson);
-                mainData2 = wrapper.videoDatas;
+            // Send the request and wait for response
+            yield return webRequest.SendWebRequest();
 
-                // Log successful loading and course information
-                Debug.Log($"Successfully loaded {mainData2.Count} videoDatas collections");
-                PrintCourseInfo();
+            if (webRequest.result == UnityWebRequest.Result.ConnectionError ||
+                webRequest.result == UnityWebRequest.Result.ProtocolError)
+            {
+                Debug.LogError($"Error loading data: {webRequest.error}");
             }
             else
             {
-                Debug.LogError("JSON TextAsset is not assigned!");
+                try
+                {
+                    string jsonData = webRequest.downloadHandler.text;
+                    VideoDataWrapper wrapper = JsonUtility.FromJson<VideoDataWrapper>(jsonData);
+                    mainData2 = wrapper.videoDatas;
+
+                    Debug.Log($"Successfully loaded {mainData2.Count} videoDatas collections");
+                    PrintCourseInfo();
+                }
+                catch (Exception e)
+                {
+                    Debug.LogError($"Error parsing data: {e.Message}");
+                }
             }
-        }
-        catch (Exception e)
-        {
-            Debug.LogError($"Error loading videoDatas: {e.Message}");
         }
     }
 
-    // Helper method to print course information
     private void PrintCourseInfo()
     {
         for (int i = 0; i < mainData2.Count; i++)
@@ -71,13 +63,11 @@ public class DataManager : MonoBehaviour
         SortingData();
     }
 
-    // Method to get all course collections
     public List<VideoData> GetAllCourses()
     {
         return mainData2;
     }
 
-    // Method to get a specific course by index
     public VideoData GetVideoDatas(int index)
     {
         if (mainData2 != null && index >= 0 && index < mainData2.Count)
@@ -88,7 +78,6 @@ public class DataManager : MonoBehaviour
         return null;
     }
 
-    // Method to get a specific course by name
     public VideoData GetVideoDatasByName(string courseName)
     {
         if (mainData2 != null)
@@ -98,7 +87,6 @@ public class DataManager : MonoBehaviour
         return null;
     }
 
-    // Method to search for videos across all courses
     public List<VideoData> SearchVideos(string searchTerm)
     {
         List<VideoData> results = new List<VideoData>();
@@ -111,7 +99,6 @@ public class DataManager : MonoBehaviour
         return results;
     }
 
-    // Recursive helper method to search through nested video data
     private void SearchInVideoData(VideoData videoData, string searchTerm, List<VideoData> results)
     {
         if (videoData.nama.ToLower().Contains(searchTerm.ToLower()) ||
@@ -129,10 +116,11 @@ public class DataManager : MonoBehaviour
         }
     }
 
-    public void SortingData() {
-        for (int index = 0; index < mainData2.Count; index++) {
-            int i;
-            i = index;
+    public void SortingData()
+    {
+        for (int index = 0; index < mainData2.Count; index++)
+        {
+            int i = index;
             VideoDataSorting v = new VideoDataSorting();
             v.parent = "Main Menu";
             v.nama = mainData2[i].nama;
@@ -143,10 +131,10 @@ public class DataManager : MonoBehaviour
             v.description = mainData2[i].description;
             List<VideoDataSorting> vVDS = new List<VideoDataSorting>();
             v.videoData = vVDS;
+
             for (int index2 = 0; index2 < mainData2[i].videoData.Count; index2++)
             {
-                int j;
-                j = index2;
+                int j = index2;
                 VideoDataSorting v2 = new VideoDataSorting();
                 v2.parent = v.nama;
                 v2.nama = mainData2[i].videoData[j].nama;
@@ -158,12 +146,12 @@ public class DataManager : MonoBehaviour
                 vVDS.Add(v2);
                 List<VideoDataSorting> vVDS2 = new List<VideoDataSorting>();
                 v2.videoData = vVDS2;
+
                 for (int index3 = 0; index3 < mainData2[i].videoData[j].videoData.Count; index3++)
                 {
-                    int k;
-                    k = index3;
+                    int k = index3;
                     VideoDataSorting v3 = new VideoDataSorting();
-                    v3.parent = v.nama +" - "+v2.nama;
+                    v3.parent = v.nama + " - " + v2.nama;
                     v3.nama = mainData2[i].videoData[j].videoData[k].nama;
                     v3.hasVideo = mainData2[i].videoData[j].videoData[k].hasVideo;
                     v3.urlVideo = mainData2[i].videoData[j].videoData[k].urlVideo;
@@ -171,13 +159,10 @@ public class DataManager : MonoBehaviour
                     v3.urlAudio = mainData2[i].videoData[j].videoData[k].urlAudio;
                     v3.description = mainData2[i].videoData[j].videoData[k].description;
                     vVDS2.Add(v3);
-
                 }
-
             }
             sortingData.Add(v);
         }
         isSort = true;
-
     }
 }

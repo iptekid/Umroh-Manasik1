@@ -101,4 +101,16 @@ public class OpacityAnimator : MonoBehaviour
             fadeCoroutine = null;
         }
     }
+    public void ActionPlays(float minOpacity, float maxOpacity, float duration) {
+        if (fadeCoroutine != null)
+        {
+            StopCoroutine(fadeCoroutine);
+        }
+        fadeCoroutine = StartCoroutine(PingPongOnce(minOpacity, maxOpacity, duration));
+    }
+    public IEnumerator PingPongOnce(float minOpacity, float maxOpacity, float duration) {
+        yield return StartCoroutine(FadeRoutine(maxOpacity, duration / 3));
+        yield return new WaitForSeconds(duration / 3);
+        yield return StartCoroutine(FadeRoutine(minOpacity, duration / 3));
+    }
 }

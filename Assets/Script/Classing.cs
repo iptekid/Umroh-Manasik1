@@ -6,7 +6,11 @@ public class Classing
 {
     
 }
-
+[System.Serializable]
+public enum state
+{
+    mainMenu, sub1Pengantar, sub2Pengantar, sub1Miqat
+}
 [System.Serializable]
 public class VideoData {
     public string nama;

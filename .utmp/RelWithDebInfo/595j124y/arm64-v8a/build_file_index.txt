@@ -1,0 +1,2 @@
+C:\Users\rajas\Documents\IPTEK\2024\Project-Files\Umroh-Manasik\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\CMakeLists.txt
+C:\Users\rajas\Documents\IPTEK\2024\Project-Files\Umroh-Manasik\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\CMakeLists.txt

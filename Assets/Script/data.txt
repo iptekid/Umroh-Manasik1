@@ -2,8 +2,8 @@
   "videoDatas": [
     {
       "nama": "Pengantar",
-      "hasVideo": false,
-      "urlVideo": "",
+      "hasVideo": true,
+      "urlVideo": "file://C:/Sabr/MANASIK-HIGHLIGHT.mp4",
       "hasAudio": false,
       "urlAudio": "",
       "description": "Manasik - Pengantar",
@@ -11,117 +11,119 @@
         {
           "nama": "Niat",
           "hasVideo": true,
-          "urlVideo": "https://example.com/video/business/strategy.mp4",
+          "urlVideo": "file://C:/Sabr/MANASIK-HIGHLIGHT.mp4",
           "hasAudio": false,
-          "urlAudio": "https://example.com/audio/business/strategy.mp3",
+          "urlAudio": "",
           "description": "Pengantar - Niat",
           "videoData": []
         },
         {
-          "nama": "Tawaf ",
+          "nama": "Rukun Umroh ",
           "hasVideo": true,
-          "urlVideo": "https://example.com/video/business/strategy.mp4",
+          "urlVideo": "file://C:/Sabr/MANASIK-HIGHLIGHT.mp4",
           "hasAudio": false,
-          "urlAudio": "https://example.com/audio/business/strategy.mp3",
+          "urlAudio": "",
           "description": "Pengantar - Tawaf",
           "videoData": []
         },
         {
-          "nama": "Sa'i",
+          "nama": "Larangan Umroh",
           "hasVideo": true,
-          "urlVideo": "https://example.com/video/business/strategy.mp4",
+          "urlVideo": "file://C:/Sabr/MANASIK-HIGHLIGHT.mp4",
           "hasAudio": false,
-          "urlAudio": "https://example.com/audio/business/strategy.mp3",
+          "urlAudio": "",
           "description": "Pengantar - Sa'i",
           "videoData": []
         },
         {
-          "nama": "Tahalul",
+          "nama": "Perbolehan Saat Ihram",
           "hasVideo": true,
-          "urlVideo": "https://example.com/video/business/strategy.mp4",
+          "urlVideo": "file://C:/Sabr/MANASIK-HIGHLIGHT.mp4",
           "hasAudio": false,
-          "urlAudio": "https://example.com/audio/business/strategy.mp3",
+          "urlAudio": "",
           "description": "Pengantar - Tahalul",
           "videoData": []
         },
         {
-          "nama": "Memahai tata Tertib",
+          "nama": "Toilet",
           "hasVideo": true,
-          "urlVideo": "https://example.com/video/business/strategy.mp4",
+          "urlVideo": "file://C:/Sabr/MANASIK-HIGHLIGHT.mp4",
           "hasAudio": false,
-          "urlAudio": "https://example.com/audio/business/strategy.mp3",
-          "description": "Pengantar - Memahai tata Tertib",
-          "videoData": []
-        },
-        {
-          "nama": "Larangan-larangan umrah",
-          "hasVideo": true,
-          "urlVideo": "https://example.com/video/business/strategy.mp4",
-          "hasAudio": false,
-          "urlAudio": "https://example.com/audio/business/strategy.mp3",
-          "description": "Pengantar - Larangan-larangan umrah",
-          "videoData": []
-        },
-        {
-          "nama": "Sunnah - sunnah umrah",
-          "hasVideo": true,
-          "urlVideo": "https://example.com/video/business/strategy.mp4",
-          "hasAudio": false,
-          "urlAudio": "https://example.com/audio/business/strategy.mp3",
-          "description": "Pengantar - Sunnah - sunnah umrah",
-          "videoData": []
-        },
-        {
-          "nama": "1Toilet",
-          "hasVideo": true,
-          "urlVideo": "https://example.com/video/business/strategy.mp4",
-          "hasAudio": false,
-          "urlAudio": "https://example.com/audio/business/strategy.mp3",
+          "urlAudio": "",
           "description": "Pengantar - Toilet",
           "videoData": [
             {
               "nama": "Toilet - 1",
               "hasVideo": true,
-              "urlVideo": "https://example.com/video/business/planning.mp4",
+              "urlVideo": "file://C:/Sabr/MANASIK-HIGHLIGHT.mp4",
               "hasAudio": false,
-              "urlAudio": "https://example.com/audio/business/planning.mp3",
+              "urlAudio": "",
               "description": "Pengantar - Toilet - 1",
               "videoData": []
             },
             {
               "nama": "Toilet - 2",
               "hasVideo": true,
-              "urlVideo": "https://example.com/video/business/planning.mp4",
+              "urlVideo": "file://C:/Sabr/MANASIK-HIGHLIGHT.mp4",
               "hasAudio": false,
-              "urlAudio": "https://example.com/audio/business/planning.mp3",
+              "urlAudio": "",
               "description": "Pengantar - Toilet - 2",
               "videoData": []
             },
             {
               "nama": "Toilet - 3",
               "hasVideo": true,
-              "urlVideo": "https://example.com/video/business/planning.mp4",
+              "urlVideo": "file://C:/Sabr/MANASIK-HIGHLIGHT.mp4",
               "hasAudio": false,
-              "urlAudio": "https://example.com/audio/business/planning.mp3",
+              "urlAudio": "",
               "description": "Pengantar - Toilet - 3",
               "videoData": []
             },
             {
               "nama": "Toilet - 4",
               "hasVideo": true,
-              "urlVideo": "https://example.com/video/business/planning.mp4",
+              "urlVideo": "file://C:/Sabr/MANASIK-HIGHLIGHT.mp4",
               "hasAudio": false,
-              "urlAudio": "https://example.com/audio/business/planning.mp3",
+              "urlAudio": "",
               "description": "Pengantar - Toilet - 4",
               "videoData": []
             },
             {
               "nama": "Toilet - 5",
               "hasVideo": true,
-              "urlVideo": "https://example.com/video/business/planning.mp4",
+              "urlVideo": "file://C:/Sabr/MANASIK-HIGHLIGHT.mp4",
               "hasAudio": false,
-              "urlAudio": "https://example.com/audio/business/planning.mp3",
+              "urlAudio": "",
               "description": "Pengantar - Toilet - 5",
+              "videoData": []
+            },
+            {
+              "nama": "Toilet - 6",
+              "hasVideo": true,
+              "urlVideo": "file://C:/Sabr/MANASIK-HIGHLIGHT.mp4",
+              "hasAudio": false,
+              "urlAudio": "",
+              "description": "Pengantar - Toilet - 6",
+              "videoData": []
+            }
+            ,
+            {
+              "nama": "Toilet - 7",
+              "hasVideo": true,
+              "urlVideo": "file://C:/Sabr/MANASIK-HIGHLIGHT.mp4",
+              "hasAudio": false,
+              "urlAudio": "",
+              "description": "Pengantar - Toilet - 7",
+              "videoData": []
+            }
+            ,
+            {
+              "nama": "Toilet - 8",
+              "hasVideo": true,
+              "urlVideo": "file://C:/Sabr/MANASIK-HIGHLIGHT.mp4",
+              "hasAudio": false,
+              "urlAudio": "",
+              "description": "Pengantar - Toilet - 8",
               "videoData": []
             }
           ]
@@ -130,27 +132,36 @@
     },
     {
       "nama": "MIQAT",
-      "hasVideo": false,
-      "urlVideo": "",
+      "hasVideo": true,
+      "urlVideo": "file://C:/Sabr/MANASIK-HIGHLIGHT.mp4",
       "hasAudio": false,
       "urlAudio": "",
       "description": "Manasik - MIQAT",
       "videoData": [
         {
-          "nama": "Miqat Makani ",
+          "nama": "Miqat JiRona ",
           "hasVideo": true,
-          "urlVideo": "https://example.com/video/business/strategy.mp4",
+          "urlVideo": "file://C:/Sabr/MIQAT-JIRONA.mp4",
           "hasAudio": false,
-          "urlAudio": "https://example.com/audio/business/strategy.mp3",
+          "urlAudio": "",
+          "description": "MIQAT - Miqat Makani",
+          "videoData": []
+        },
+                {
+          "nama": "Miqat Yalamlam ",
+          "hasVideo": true,
+          "urlVideo": "file://C:/Sabr/MIQAT-YALAMLAM.mp4",
+          "hasAudio": false,
+          "urlAudio": "",
           "description": "MIQAT - Miqat Makani ",
           "videoData": []
         },
         {
-          "nama": "Miqat Zamani ",
+          "nama": "Miqat Djul Hulaifah",
           "hasVideo": true,
-          "urlVideo": "https://example.com/video/business/strategy.mp4",
+          "urlVideo": "file://C:/Sabr/MIQAT-V2.mp4",
           "hasAudio": false,
-          "urlAudio": "https://example.com/audio/business/strategy.mp3",
+          "urlAudio": "",
           "description": "MIQAT - Miqat Zamani",
           "videoData": []
         }
@@ -159,7 +170,7 @@
     {
       "nama": "Persiapan Tawaf",
       "hasVideo": true,
-      "urlVideo": "https://example.com/video/business/strategy.mp4",
+      "urlVideo": "file://C:/Sabr/TAWAF.mp4",
       "hasAudio": false,
       "urlAudio": "",
       "description": "Manasik - Persiapan Tawaf",
@@ -168,7 +179,7 @@
     {
       "nama": "Sa'I antara Shafa dan Marwah",
       "hasVideo": true,
-      "urlVideo": "https://example.com/video/business/strategy.mp4",
+      "urlVideo": "file://C:/Sabr/MANASIK-HIGHLIGHT.mp4",
       "hasAudio": false,
       "urlAudio": "",
       "description": "Manasik - Sa’I antara Shafa dan Marwah",
@@ -177,7 +188,7 @@
     {
       "nama": "Tahallul",
       "hasVideo": true,
-      "urlVideo": "https://example.com/video/business/strategy.mp4",
+      "urlVideo": "file://C:/Sabr/MANASIK-HIGHLIGHT.mp4",
       "hasAudio": false,
       "urlAudio": "",
       "description": "Manasik - Tahallul",
